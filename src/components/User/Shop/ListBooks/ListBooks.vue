@@ -52,7 +52,7 @@ export default {
           type: "travel",
         },
         {
-          price: "200000",
+          price: "2000000",
           author: "kim charles",
           title: "Book of moon moon4",
           rate: 4,
