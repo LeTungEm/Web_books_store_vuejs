@@ -29,7 +29,6 @@ export default {
   data() {
     return {
       DaughterOfTheGods: require("../../../../assets/images/books/DaughterOfTheGods.jpg"),
-      BookItem: require("../../../UI/Item/BookItem.vue"),
       HarryBook: require("../../../../assets/images/books/HarryBook.jpg"),
       heroAtTheFall: require("../../../../assets/images/books/heroAtTheFall.jpg"),
       DaughterOfTheSerpentine: require("../../../../assets/images/books/DaughterOfTheSerpentine.jpg"),

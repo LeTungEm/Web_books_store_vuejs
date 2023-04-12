@@ -64,8 +64,16 @@ export default {
           author: "kim charles",
           title: "Book of moon moon4",
           rate: 4,
-          image: require("../../../../assets/images/books/DaughterOfMan.jpg"),
+          image: require("../../../../assets/images/books/DaughterOfTheGods.jpg"),
           type: "ficture",
+        },
+        {
+          price: "200000",
+          author: "kim charles",
+          title: "Book of moon moon4",
+          rate: 4,
+          image: require("../../../../assets/images/books/DaughterOfTheDeep.jpg"),
+          type: "travel",
         },
       ],
     };
