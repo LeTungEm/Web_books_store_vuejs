@@ -58,6 +58,7 @@
 
 <script>
 import CRating from "../Library/CRating";
+import { formatPrice } from "@/assets/js";
 
 export default {
   name: "BookItem",
@@ -77,11 +78,8 @@ export default {
     CRating,
   },
   methods: {
-    formatPrice(price) {
-      Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(
-        price
-      );
-    },
+    formatPrice,
+    
   },
 };
 </script>

@@ -8,4 +8,10 @@ const changeAnimation = ({ className, from, to }) => {
     }
 }
 
-export default changeAnimation
+const formatPrice = (price) => {
+    return Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(
+      price
+    );
+}
+
+export {changeAnimation, formatPrice}

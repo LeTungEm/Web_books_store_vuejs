@@ -24,7 +24,7 @@
             </div>
             <div v-bind:class="!this.menuStatus?'-translate-y-[100%] opacity-0':''" class="absolute top-full -z-10 left-0 right-0 pb-5 bg-inherit duration-700 transition-transform lg:px-20 xl:opacity-100 xl:z-[51] xl:translate-y-0 xl:bg-none xl:top-0 xl:relative px-5 font-medium lg:text-lg xl:col-span-2 xl:pb-0 xl:mt-0">
                 <div class="flex shadow-sm items-center bg-white border rounded-sm">
-                    <input class="w-full h-6 text-[18px] outline-0 px-5 font-normal" placeholder="searching...." type="search"/>
+                    <input v-model="search" class="w-full h-6 text-[18px] outline-0 px-5 font-normal" placeholder="searching...." type="search"/>
                     <ion-icon class="text-3xl pr-5 py-1" name="search-sharp"></ion-icon>
                 </div>
                 <div class="justify-around gap-20 mt-5 xl:flex [&>*]:font-bold [&>*]:block hover:[&>*]:text-orange-700 [&>*]:duration-500">
@@ -49,7 +49,13 @@ export default {
     return {
       menuStatus: false,
       bgMenu: false,
+      search: "",
     };
+  },
+  watch:{
+    search:function(){
+      this.$emit("search", this.search);
+    }
   },
   methods: {
     changeBGMenu() {

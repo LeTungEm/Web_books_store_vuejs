@@ -22,10 +22,6 @@ export default {
   name: "ListBooks",
   data() {
     return {
-      HarryBook: require("../../../../assets/images/books/HarryBook.jpg"),
-      heroAtTheFall: require("../../../../assets/images/books/heroAtTheFall.jpg"),
-      DaughterOfTheSerpentine: require("../../../../assets/images/books/DaughterOfTheSerpentine.jpg"),
-      DaughterOfMan: require("../../../../assets/images/books/DaughterOfMan.jpg"),
       listBook: [
         {
           price: "200000",
@@ -62,7 +58,7 @@ export default {
         {
           price: "200000",
           author: "kim charles",
-          title: "Book of moon moon4",
+          title: "Book3",
           rate: 4,
           image: require("../../../../assets/images/books/DaughterOfTheGods.jpg"),
           type: "ficture",
@@ -70,7 +66,7 @@ export default {
         {
           price: "200000",
           author: "kim charles",
-          title: "Book of moon moon4",
+          title: "Book 2",
           rate: 4,
           image: require("../../../../assets/images/books/DaughterOfTheDeep.jpg"),
           type: "travel",
@@ -80,11 +76,8 @@ export default {
   },
   props: {
     choicedPublish: Array,
-  },
-  watch: {
-    choicedPublish: function () {
-      console.log("list book xuat " + this.choicedPublish);
-    },
+    search: String,
+    price: Object,
   },
   methods: {
     filterBooks() {
@@ -95,7 +88,24 @@ export default {
           (this.choicedPublish.includes(book.type.toString())) 
         );
       }
-      console.log("fsdf" + filter.length);
+      if (this.search){
+        filter = filter.filter(book => (
+          book.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+        ))
+      }
+      if (this.price){
+        filter = filter.filter(book => {
+          if(this.price.max){
+            if(book.price > this.price.min && book.price <= this.price.max){
+              return book;
+            }
+          }else{
+            if(book.price >= this.price.min){
+              return book;
+            }
+          }
+      })
+      }
       return filter;
     },
   },
