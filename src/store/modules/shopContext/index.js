@@ -3,7 +3,7 @@ import {mutations} from './mutations'
 import {getters} from './getters'
 
 const state = {
-    choicedPublish: [],
+    choicedPublish: ["nef ne",'14'],
 };
 const namespaced = true;
 export const shopContext = {

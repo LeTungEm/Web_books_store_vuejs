@@ -1,5 +1,5 @@
 export const getters = {
-    // getOneProduct(state){
-    //     return state.products[0];
-    // }
+    getOneProduct(state){
+        return state.choicedPublish[0];
+    },
 };

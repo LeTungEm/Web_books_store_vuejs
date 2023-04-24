@@ -1,60 +1,72 @@
 import axios from "axios";
 
 const PRODUCT_API_URL =
-  "https://webbalo.online/data/Controllers/ProductsController.php";
+    "http://localhost/LeTungEm/ApiLiBrary/controllers/DocGiaController.php";
 
-class ChiTietPhieuService {
+class DocGiaService {
 
     getAll() {
-    return axios.get(`${PRODUCT_API_URL}`, {
-      params: { action: "getAll" },
-    });
-  }
+        return axios.get(`${PRODUCT_API_URL}`, {
+            params: {
+                action: "getAll"
+            },
+        });
+    }
 
-  getByID(mads) {
-    return axios.get(`${PRODUCT_API_URL}`, {
-      params: {
-        action: "getByID",
-        mads: mads,
-      },
-    });
-  }
+    getByID(iddocgia) {
+        return axios.get(`${PRODUCT_API_URL}`, {
+            params: {
+                action: "getByID",
+                iddocgia: iddocgia,
+            },
+        });
+    }
 
-  insertChiTietPhieu(soluong, ngatdat, sophieu, masach, iddocgia) {
-    return axios.get(`${PRODUCT_API_URL}`, {
-      params: {
-        action: "insertChiTietPhieu",
-        soluong: soluong, 
-        ngatdat: ngatdat, 
-        sophieu: sophieu, 
-        masach: masach, 
-        iddocgia: iddocgia,
-      },
-    });
-  }
+    insertDocGia(email, matkhau, hoten, malop, madonvi) {
+        return axios.get(`${PRODUCT_API_URL}`, {
+            params: {
+                action: "insertDocGia",
+                email: email,
+                matkhau: matkhau,
+                hoten: hoten,
+                malop: malop,
+                madonvi: madonvi,
+            },
+        });
+    }
 
-  deleteChiTietPhieu(mads) {
-    return axios.get(`${PRODUCT_API_URL}`, {
-      params: {
-        action: "deleteChiTietPhieu",
-        mads: mads,
-      },
-    });
-  }
+    deleteDocGia(iddocgia) {
+        return axios.get(`${PRODUCT_API_URL}`, {
+            params: {
+                action: "iddocgia",
+                iddocgia: iddocgia,
+            },
+        });
+    }
 
-  updateChiTietPhieu(soluong, ngatdat, sophieu, masach, iddocgia, mads) {
-    return axios.get(`${PRODUCT_API_URL}`, {
-      params: {
-        action: "updateChiTietPhieu",
-        soluong: soluong, 
-        ngatdat: ngatdat, 
-        sophieu: sophieu, 
-        masach: masach, 
-        iddocgia: iddocgia, 
-        mads: mads,
-      },
-    });
-  }
+    updateChiTietPhieu(email, matkhau, hoten, malop, madonvi, iddocgia) {
+        return axios.get(`${PRODUCT_API_URL}`, {
+            params: {
+                action: "updateChiTietPhieu",
+                email: email,
+                matkhau: matkhau,
+                hoten: hoten,
+                malop: malop,
+                madonvi: madonvi,
+                iddocgia: iddocgia,
+            },
+        });
+    }
+
+    checkLogin(email, matkhau) {
+        return axios.get(`${PRODUCT_API_URL}`, {
+            params: {
+                action: "checkLogin",
+                email: email,
+                matkhau: matkhau,
+            },
+        });
+    }
 }
 
-export default new ChiTietPhieuService();
+export default new DocGiaService();

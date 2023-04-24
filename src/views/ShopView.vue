@@ -1,50 +1,99 @@
 <template>
-  <CHeader @search="changeSearch" />
+  <CHeader :changeNumber="this.changeNumber" @search="changeSearch" />
   <div className="relative flex px-5 mb-5 lg:px-10">
-    <Published @changeRangePrice="changeRangePrice" @changePublishedChoie="changeListChoice" />
-    <ListBooks :price="price" :search="search" :choicedPublish="this.choicedPublish" />
+    <LeftMenu
+      :categoryArr="bookTypes"
+      :authorArr="authors"
+      :publisherArr="publishers"
+      @changeSelectedAuthor="changeSelectedAuthor"
+      @changeSelectedPublisher="changeSelectedPublisher"
+      @changeSelectedCategory="changeselectedCategory"
+    />
+    <ListBooks
+      @changeCart="this.changeNumber += 1"
+      :lishBook="this.lishBook"
+      :search="search"
+      :selectedCategory="this.selectedCategory"
+      :selectedAuthor="this.selectedAuthor"
+      :selected-publisher="this.selectedPublisher"
+    />
   </div>
-  <CFooter/>
+  <CFooter />
 </template>
 
 <script>
-import CHeader from "../components/UI/Header/Header.vue"
-import Published from "@/components/User/Shop/Published/Published.vue";
+import CHeader from "../components/UI/Header/Header.vue";
+import LeftMenu from "@/components/User/Shop/LeftMenu/LeftMenu.vue";
 import ListBooks from "@/components/User/Shop/ListBooks/ListBooks.vue";
-import CFooter from "../components/UI/Footer/Footer.vue"
+import CFooter from "../components/UI/Footer/Footer.vue";
+import SachService from "@/service/SachService";
+import TheLoaiService from "@/service/TheLoaiService";
+import TacGiaService from "@/service/TacGiaService";
+import NhaXuatBanService from '@/service/NhaXuatBanService';
 
 export default {
   name: "ShopView",
   data() {
     return {
-      choicedPublish: [],
+      selectedCategory: [],
+      selectedAuthor: [],
+      selectedPublisher: [],
       search: "",
-      price:{
-        min: 100000,
-        max: 200000,
-      }
+      lishBook: [],
+      bookTypes: [],
+      authors: [],
+      publishers: [],
+      changeNumber: 0,
     };
   },
   components: {
     CHeader,
-    Published,
+    LeftMenu,
     ListBooks,
     CFooter,
   },
-  methods:{
-    changeListChoice(choicedPublish){
-      this.choicedPublish = choicedPublish;
+  methods: {
+    getLishBook: function () {
+      SachService.getAll().then((res) => {
+        this.lishBook = res.data;
+      });
+    },
+    getBookTypes: function () {
+      TheLoaiService.getAll().then((res) => {
+        this.bookTypes = res.data;
+      });
+    },
+    getAuthors: function () {
+      TacGiaService.getAll().then((res) => {
+        this.authors = res.data;
+      });
+    },
+    getPublisher: function () {
+      NhaXuatBanService.getAll().then((res) => {
+        this.publishers = res.data;
+      });
+    },
+    changeSelectedAuthor(lishChoice) {
+      this.selectedAuthor = lishChoice;
+    },
+    changeSelectedPublisher(lishChoice) {
+      this.selectedPublisher = lishChoice;
     },
 
-    changeRangePrice(minPrice, maxPrice){
-      this.price.min = minPrice;
-      this.price.max = maxPrice;
+    changeselectedCategory(lishChoice) {
+      this.selectedCategory = lishChoice;
     },
 
-    changeSearch(search){
+    changeSearch(search) {
       this.search = search;
-    }
-  }
+    },
+  },
+  created() {
+    this.getLishBook();
+    this.getBookTypes();
+    this.getAuthors();
+    this.getPublisher();
+  },
 };
 </script>
 

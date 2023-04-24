@@ -1,9 +1,13 @@
 <template>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Playfair Display", serif;
+}
 </style>

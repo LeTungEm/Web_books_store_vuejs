@@ -18,7 +18,7 @@ export default {
     data(){
         return {
             logo:require('../../../../assets/images/logo/logo.jpg'),
-            banner:require('../../../../assets/images/banner/banner2.jpg'),
+            banner:require('../../../../assets/images/banner/banner.png'),
         };
     }
 }

@@ -7,28 +7,15 @@
     <ion-icon class="text-orange-500 translate-y-8" name="sparkles"></ion-icon>
   </h1>
   <h5 className="pt-5 text-2xl text-center text-gray-600">
-    asdnsndsdjj adnkasd asdasds asdsads
+    Who are passionate authors of this Moon ?
   </h5>
   <div className="flex flex-wrap justify-center gap-5 mt-20 px-10 lg:gap-16">
     <AuthorItem
-      :image="image"
-      title="Harry Potter"
-      description="asndjsd asdjsad asdsd asdjsad asdsd asdjsad asdsd asdjsad asdsd"
-    />
-    <AuthorItem
+      v-for="author in getAuthorOfTheMoon"
+      :key="author"
       :image="image2"
-      title="Jean Snow"
-      description="asndjsd asdjsad asdsd asdjsad asdsd asdjsad asdsd asdjsad asdsd"
-    />
-    <AuthorItem
-      :image="image"
-      title="Peter Hause"
-      description="asndjsd asdjsad asdsd asdjsad asdsd asdjsad asdsd asdjsad asdsd"
-    />
-    <AuthorItem
-      :image="image2"
-      title="Amanda Sweet"
-      description="asndjsd asdjsad asdsd asdjsad asdsd asdjsad asdsd asdjsad asdsd"
+      :title="author.tentg"
+      :description="author.gioithieu"
     />
   </div>
 </template>
@@ -40,13 +27,33 @@ export default {
   name: "AuthorsOfTheMonth",
   data(){
     return {
-        image:require("../../../../assets/images/authors/2.jpg"),
-        image2:require("../../../../assets/images/authors/1.jpg")
+        image2:require("../../../../assets/images/authors/1.jpg"),
     };
+  },
+  props:{
+    authors: Array,
+  },
+  computed:{
+    getAuthorOfTheMoon: function(){
+      let authorOfTheMoon = [];
+      for(let author of this.authors){
+        if(authorOfTheMoon.length <= 3)
+          authorOfTheMoon.push(author);
+        else{
+          break;
+        }
+      }
+      return authorOfTheMoon;
+    }
+  },
+  methods:{
+    
   },
   components: {
     AuthorItem,
   },
+  created(){
+  }
 };
 </script>
 

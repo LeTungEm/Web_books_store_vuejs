@@ -4,13 +4,17 @@
   >
     <BookItem
       v-for="book in filterBooks()"
-      :key="book.title"
-      :price="book.price"
+      @changeCart="this.$emit('changeCart')"
+      :bookId="book.masach"
+      buttonHover
+      :key="book.tensach"
+      :price="book.giatien"
       contentCenter
-      :author="book.author"
-      :title="book.title"
-      :rate="book.rate"
-      :image="book.image"
+      :author="book.tentg"
+      :title="book.tensach"
+      :rate="5"
+      :imageHeight="'h-[200px] lg:h-[300px]'"
+      :image="book.photo"
     />
   </div>
 </template>
@@ -21,91 +25,68 @@ import BookItem from "../../../UI/Item/BookItem.vue";
 export default {
   name: "ListBooks",
   data() {
-    return {
-      listBook: [
-        {
-          price: "200000",
-          author: "kim charles",
-          title: "Book of moon moon1",
-          rate: 4,
-          image: require("../../../../assets/images/books/HarryBook.jpg"),
-          type: "fantasy",
-        },
-        {
-          price: "200000",
-          author: "kim charles",
-          title: "Book of moon moon2",
-          rate: 4,
-          image: require("../../../../assets/images/books/heroAtTheFall.jpg"),
-          type: "fantasy",
-        },
-        {
-          price: "200000",
-          author: "kim charles",
-          title: "Book of moon moon3",
-          rate: 4,
-          image: require("../../../../assets/images/books/DaughterOfTheSerpentine.jpg"),
-          type: "travel",
-        },
-        {
-          price: "2000000",
-          author: "kim charles",
-          title: "Book of moon moon4",
-          rate: 4,
-          image: require("../../../../assets/images/books/DaughterOfMan.jpg"),
-          type: "ficture",
-        },
-        {
-          price: "200000",
-          author: "kim charles",
-          title: "Book3",
-          rate: 4,
-          image: require("../../../../assets/images/books/DaughterOfTheGods.jpg"),
-          type: "ficture",
-        },
-        {
-          price: "200000",
-          author: "kim charles",
-          title: "Book 2",
-          rate: 4,
-          image: require("../../../../assets/images/books/DaughterOfTheDeep.jpg"),
-          type: "travel",
-        },
-      ],
-    };
+    return {};
   },
   props: {
-    choicedPublish: Array,
+    lishBook: Array,
+    selectedCategory: Array,
+    selectedPublisher: Array,
+    selectedAuthor: Array,
     search: String,
-    price: Object,
   },
   methods: {
-    filterBooks() {
-      let filter = [];
-      filter = this.listBook;
-      if (this.choicedPublish.length) {
-        filter = filter.filter((book) => 
-          (this.choicedPublish.includes(book.type.toString())) 
+    filterBookManyCategory(stringCategory, selectedCategory) {
+      let arrCategory = stringCategory.split(", ");
+      for (let category of arrCategory) {
+        if (selectedCategory.includes(category)) return true;
+      }
+      return false;
+    },
+    filterByCategory(selectedCategory, list) {
+      if (selectedCategory.length) {
+        return list.filter((book) =>
+          this.filterBookManyCategory(book.tentheloai, selectedCategory)
         );
       }
-      if (this.search){
-        filter = filter.filter(book => (
-          book.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1
-        ))
+      return list;
+    },
+    filterByPublisher(selectedPublisher, list) {
+      if (selectedPublisher.length) {
+        return list.filter((book) => selectedPublisher.includes(book.tennxb));
       }
-      if (this.price){
-        filter = filter.filter(book => {
-          if(this.price.max){
-            if(book.price > this.price.min && book.price <= this.price.max){
-              return book;
-            }
-          }else{
-            if(book.price >= this.price.min){
-              return book;
-            }
-          }
-      })
+      return list;
+    },
+    filterBookManyAuthor(stringAuthors, selectedAuthor) {
+      let arrAuthorName = stringAuthors.split(", ");
+      for (let author of arrAuthorName) {
+        if (selectedAuthor.includes(author)) return true;
       }
+      return false;
+    },
+    filterByAuthor(selectedAuthor, list) {
+      if (selectedAuthor.length) {
+        return list.filter((book) =>
+          this.filterBookManyAuthor(book.tentg, selectedAuthor)
+        );
+      }
+      return list;
+    },
+    filterBySearch(search, list) {
+      if (search != "") {
+        return list.filter(
+          (book) =>
+            book.tensach.toLowerCase().indexOf(search.toLowerCase()) > -1
+        );
+      }
+      return list;
+    },
+    filterBooks() {
+      let filter = [];
+      filter = this.lishBook;
+      filter = this.filterByCategory(this.selectedCategory, filter);
+      filter = this.filterByPublisher(this.selectedPublisher, filter);
+      filter = this.filterByAuthor(this.selectedAuthor, filter);
+      filter = this.filterBySearch(this.search, filter);
       return filter;
     },
   },

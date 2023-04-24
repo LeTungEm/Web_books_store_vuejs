@@ -1,12 +1,12 @@
 <template>
-    <CHeader/>
-    <CBanner/>
-    <BooksOfTheMonth/>
-    <BestSeller/>
-    <AuthorsOfTheMonth/>
-    <HappyClientSay/>
-    <OurService/>
-    <CFooter/>
+  <CHeader />
+  <CBanner />
+  <BooksOfTheMonth :lishBook="lishBook"/>
+  <BestSeller :lishBook="lishBook"/>
+  <AuthorsOfTheMonth :authors="authors" />
+  <HappyClientSay />
+  <OurService />
+  <CFooter />
 </template>
 
 <script>
@@ -18,12 +18,19 @@ import BestSeller from "../components/User/Home/BestSeller/BestSeller.vue"
 import BooksOfTheMonth from "../components/User/Home/BooksOfTheMonth/BooksOfTheMonth.vue"
 import HappyClientSay from "@/components/User/Home/HappyClientSay/HappyClientSay.vue"
 import OurService from "@/components/User/Home/OurService/OurService.vue"
+import SachService from '@/service/SachService'
+import TheLoaiService from '@/service/TheLoaiService'
+import TacGiaService from '@/service/TacGiaService'
+import VietService from "@/service/VietService"
 
 export default {
   name: "HomeView",
   data(){
     return {
-      status: true,
+      lishBook: [],
+      bookTypes: [],
+      authors: [],
+      writedBy: [],
     };
   },
   components: {
@@ -36,10 +43,37 @@ export default {
     HappyClientSay,
     OurService
   },
-  methods: {
-
+  methods:{
+    getLishBook: function() {
+      SachService.getAll().then(res => {
+        this.lishBook = res.data;
+      });
+    },
+    getBookTypes: function() {
+      TheLoaiService.getAll().then(res => {
+        this.bookTypes = res.data;
+      });
+    },
+    getAuthors: function() {
+      TacGiaService.getAll().then(res => {
+        this.authors = res.data;
+      });
+    },
+    getWritedBy: function() {
+      VietService.getAll().then(res => {
+        this.writedBy = res.data;
+      });
+    },
+  },
+  computed:{
+    
   },
   created() {
+    this.getLishBook();
+    this.getBookTypes();
+    this.getAuthors();
+    this.getWritedBy();
+    console.log(sessionStorage.getItem("userID"));
   },
 };
 </script>

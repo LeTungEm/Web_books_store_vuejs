@@ -1,9 +1,9 @@
 <template>
     <div className="flex justify-between py-14 lg:px-32">
         <h1 className="text-2xl font-medium sm:text-3xl lg:text-5xl 2xl:text-6xl"><ion-icon class="text-orange-500 -translate-y-5" name="sparkles"></ion-icon> Books Of The Month</h1>
-        <div className="group rounded-sm inline-flex items-center px-6 bg-black text-white hover:text-black hover:bg-white hover:border-2 ease-in-out duration-300">SEE ALL <ion-icon class="mx-2 group-hover:translate-x-4 group-hover:text-2xl ease-in-out duration-500" name="arrow-forward-sharp"></ion-icon></div>
+        <router-link to="/shop" className="group rounded-sm inline-flex items-center px-6 bg-black text-white hover:text-black hover:bg-white hover:border-2 ease-in-out duration-300">SEE ALL <ion-icon class="mx-2 group-hover:translate-x-4 group-hover:text-2xl ease-in-out duration-500" name="arrow-forward-sharp"></ion-icon></router-link>
     </div>
-    <div className="relative overflow-hidden w-full">
+    <div className="relative w-full">
         <Swiper
             :spaceBetween="40"
             :loop="true"
@@ -27,16 +27,10 @@
                 delay: 2500,
                 disableOnInteraction: false,
             }"
+            v-bind:class="'w-full grid overflow-y-hidden'"
             className="mySwiper"
         >
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="harryBook" /></SwiperSlide>
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="heroAtTheFall" /></SwiperSlide>
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="DaughterOfTheSerpentine" /></SwiperSlide>
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="heroAtTheFall" /></SwiperSlide>
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="TheHobbit" /></SwiperSlide>
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="harryBook" /></SwiperSlide>
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="DaughterOfMan" /></SwiperSlide>
-            <SwiperSlide><BookItem :key="'sdfdsfsdf'" flex button :author="'kim charles'" :title="'Book of moon moon'" :rate="3.5" :image="heroAtTheFall" /></SwiperSlide>
+            <SwiperSlide v-for="book in getBooksOfTheMoon" :key="book"><BookItem flex button :author="book.tentg" :title="book.tensach" :rate="3.5" :image="book.photo" /></SwiperSlide>
 
         </Swiper>
         <div className="absolute w-full h-1/2 bg-yellow-50 bottom-0">&nbsp;</div>
@@ -54,19 +48,27 @@ export default {
   name: "BooksOfTheMonth",
   data() {
     return {
-      DaughterOfTheGods: require("../../../../assets/images/books/DaughterOfTheGods.jpg"),
-      harryBook: require("../../../../assets/images/books/HarryBook.jpg"),
-      heroAtTheFall: require("../../../../assets/images/books/heroAtTheFall.jpg"),
-      DaughterOfTheSerpentine: require("../../../../assets/images/books/DaughterOfTheSerpentine.jpg"),
-      TheHobbit: require("../../../../assets/images/books/TheHobbit.jpg"),
-      DaughterOfMan: require("../../../../assets/images/books/DaughterOfMan.jpg"),
-      DaughterOfTheDeep: require("../../../../assets/images/books/DaughterOfTheDeep.jpg"),
     };
+  },
+  props:{
+    lishBook: Array,
   },
   components: {
     BookItem,
     Swiper,
     SwiperSlide,
+  },
+  computed:{
+    getBooksOfTheMoon(){
+      let booksOfTheMoon = [];
+      for(let book of this.lishBook){
+        if(booksOfTheMoon.length <= 7)
+          booksOfTheMoon.push(book);
+        else
+          break;
+      }
+      return booksOfTheMoon;
+    }
   },
   setup() {
     return {

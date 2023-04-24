@@ -5,7 +5,7 @@
     >
       <div class="flex items-center flex-shrink-0 mr-6">
         <router-link to="/" class="text-lg md:text-2xl lg:text-4xl font-bold uppercase"
-          >book <span class="text-orange-700">forest</span></router-link
+          >book <span :style="`background-image: url(${backGround})`" class="bg-clip-text text-transparent bg-cover bg-bottom">forest</span></router-link
         >
       </div>
       <div class="flex items-center justify-end">
@@ -46,6 +46,11 @@
 <script>
 export default {
   name: "CFooter",
+  data(){
+    return{
+      backGround: require("../../../assets/images/banner/loginBackGround.jpg"),
+    };
+  }
 };
 </script>
 
