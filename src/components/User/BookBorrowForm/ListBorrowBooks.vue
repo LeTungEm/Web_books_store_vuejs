@@ -1,10 +1,9 @@
 <template>
   <div class="py-4 px-5">
     <div
-      class="flex sticky top-0 bg-white z-10 justify-between items-center border-b-2 p-4 mb-5"
+      class="flex sticky top-36 md:top-48 bg-white z-10 justify-between items-center border-b-2 p-4 mb-5"
     >
       <h1 class="text-4xl lg:text-6xl text-orange-700">Borrow Books</h1>
-      <router-link to="/shop" class="text-lg lg:text-2xl border border-orange-700 rounded-md p-2 text-orange-600 hover:bg-orange-600 hover:text-white">Back</router-link>
     </div>
     <div class="pr-3 pl-3 pb-5">
       <CartItem

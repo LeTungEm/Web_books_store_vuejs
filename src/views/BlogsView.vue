@@ -2,11 +2,12 @@
   <CHeader />
   <div class="mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 pt-12 pb-24">
     <BlogItem
+      v-for="blog in blogs"
+      :id="blog.mathongbao"
       :blogName="blog.tieude"
       :content="blog.noidung"
       :createDate="blog.ngaydang"
       :image="require(`../assets/images/blogs/${blog.photo}`)"
-      v-for="blog in blogs"
       :key="blog.name"
     />
   </div>

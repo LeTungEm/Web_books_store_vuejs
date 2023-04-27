@@ -1,11 +1,9 @@
 <template>
-  <div class="h-full shadow-md pb-12 bg-gray-50 relative">
-    <router-link to="/blog">
-      <img
-        :src="image"
-        class="w-full h-52 md:h-64 lg:h-72 xl:h-96 object-cover"
-      />
-    </router-link>
+  <router-link :to="`/blogDetail/${id}`" class="h-full shadow-md pb-12 bg-gray-50 relative">
+    <img
+      :src="image"
+      class="w-full h-52 md:h-64 lg:h-72 xl:h-96 object-cover"
+    />
     <div class="p-8 relative">
       <div class="text-xs text-gray-600 uppercase font-semibold">
         {{ createDate }}
@@ -15,8 +13,7 @@
       </h2>
       <p class="mt-4 max-w-md">{{ content.substr(0, 150) }}...</p>
     </div>
-    <router-link
-      to="/blogDetail"
+    <div
       class="px-8 absolute bottom-5 flex items-center uppercase text-sm text-black hover:text-gray-600 font-semibold"
       >Read article
       <svg
@@ -33,14 +30,15 @@
           d="M9 5l7 7-7 7"
         ></path>
       </svg>
-    </router-link>
-  </div>
+    </div>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: "BlogItem",
   props: {
+    id: String,
     image: String,
     createDate: String,
     blogName: String,

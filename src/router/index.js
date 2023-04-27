@@ -34,6 +34,11 @@ const routes = [
     path: '/bookBorrowForm',
     name: 'bookBorrowForm',
     component: () => import('../views/BookBorrowFormView.vue')
+  },
+  {
+    path: '/blogDetail/:id',
+    name: 'blogDetail',
+    component: () => import('../views/BlogDetail.vue')
   }
 ]
 

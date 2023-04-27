@@ -1,12 +1,12 @@
 <template>
   <div
     :style="`background-image: url(${backGround})`"
-    class="flex items-center justify-end bg-center bg-cover w-full h-[100vh] overflow-scroll"
+    class="flex items-center justify-end bg-center bg-cover w-full h-[100vh]"
   >
     <div
       class="flex items-center justify-center p-5 w-full lg:pr-20 md:w-1/2 h-full"
     >
-      <div class="w-full">
+      <div class="w-full h-full overflow-scroll md:h-auto md:overflow-visible scrollbar-hide">
         <router-link
           to="/"
           class="text-7xl lg:text-8xl font-bold uppercase md:-ml-56 md:whitespace-nowrap"
