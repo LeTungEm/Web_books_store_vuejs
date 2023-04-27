@@ -29,6 +29,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import('../views/LoginView.vue')
+  },
+  {
+    path: '/bookBorrowForm',
+    name: 'bookBorrowForm',
+    component: () => import('../views/BookBorrowFormView.vue')
   }
 ]
 

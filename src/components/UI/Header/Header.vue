@@ -95,7 +95,7 @@
           >Bookshop Finder
         </div>
         <div 
-          v-bind:class="isCartNull?``:`before:content-[''] before:w-2 before:h-2 before:absolute before:top-0 before:right-0 before:bg-red-500 before:rounded-full`"
+          v-bind:class="isCartNull?``:`before:content-[''] before:xl:block before:hidden before:w-2 before:h-2 before:absolute before:top-0 before:right-0 before:bg-red-500 before:rounded-full`"
           class="relative">
           <ion-icon
             @click="changeCartStatus"

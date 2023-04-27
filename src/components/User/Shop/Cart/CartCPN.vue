@@ -36,19 +36,19 @@
           class="mx-auto"
           alt=""
         />
-        <div class="border-b pb-5">
+        <!-- <div class="border-b pb-5">
           <div class="flex justify-between font-bold">
             <h1>Total:</h1>
             <p>0</p>
           </div>
-        </div>
+        </div> -->
 
         <div class="mt-5">
           <router-link
-            to="/checkout"
+            to="/bookBorrowForm"
             class="block text-center w-full border my-2 py-3 bg-green-500 hover:bg-green-600 text-white"
           >
-            proceed to checkout
+            Borrow books
           </router-link>
         </div>
       </div>

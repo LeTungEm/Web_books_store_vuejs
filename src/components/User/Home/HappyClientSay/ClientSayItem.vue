@@ -1,5 +1,5 @@
 <template>
-  <div className="relative border p-16 text-center pb-36">
+  <div className="relative border border-black p-16 text-center pb-36">
     <CRating :rate="rate" />
     <h1 className="text-lg lg:text-2xl 2xl:text-4xl my-4">{{title}}</h1>
     <h5 className="text-sm lg:text-lg 2xl:text-xl">{{description}}</h5>
