@@ -1,17 +1,19 @@
 <template>
-  <Header/>
-  <ListBorrowBooks />
-  <BookBorrowForm />
+  <CHeader/>
+  <div class="relative">
+    <ListBorrowBooks />
+    <BookBorrowForm />
+  </div>
 </template>
 
 <script>
-import Header from "@/components/UI/Header/Header.vue";
+import CHeader from "@/components/UI/Header/CHeader.vue";
 import BookBorrowForm from "@/components/User/BookBorrowForm/BookBorrowForm.vue";
 import ListBorrowBooks from "@/components/User/BookBorrowForm/ListBorrowBooks.vue";
 
 export default {
   name: "BookBorrowFormView",
-  components: { BookBorrowForm, ListBorrowBooks, Header },
+  components: { BookBorrowForm, ListBorrowBooks, CHeader },
   created() {
   },
 };

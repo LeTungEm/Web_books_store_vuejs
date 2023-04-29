@@ -30,7 +30,7 @@
             v-bind:class="'w-full grid overflow-y-hidden'"
             className="mySwiper"
         >
-            <SwiperSlide v-for="book in getBooksOfTheMoon" :key="book"><BookItem flex button :author="book.tentg" :title="book.tensach" :rate="3.5" :image="book.photo" /></SwiperSlide>
+            <SwiperSlide v-for="book in getBooksOfTheMoon" :key="book"><BookItem flex button :bookId="book.masach" :author="book.tentg" :title="book.tensach" :rate="3.5" :image="book.photo" /></SwiperSlide>
 
         </Swiper>
         <div className="absolute w-full h-1/2 bg-yellow-50 bottom-0">&nbsp;</div>

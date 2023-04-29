@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import CHeader from "../components/UI/Header/Header.vue"
+import CHeader from "../components/UI/Header/CHeader.vue"
 import CFooter from "../components/UI/Footer/Footer.vue"
 import AuthorsOfTheMonth from "../components/User/Home/AuthorsOfTheMonth/AuthorsOfTheMonth.vue"
 import CBanner from "../components/User/Home/Banner/CBanner.vue"
@@ -73,7 +73,7 @@ export default {
     this.getBookTypes();
     this.getAuthors();
     this.getWritedBy();
-    console.log(sessionStorage.getItem("userID"));
+    // console.log(sessionStorage.getItem("userID"));
   },
 };
 </script>

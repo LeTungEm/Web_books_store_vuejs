@@ -7,7 +7,7 @@
       :blogName="blog.tieude"
       :content="blog.noidung"
       :createDate="blog.ngaydang"
-      :image="require(`../assets/images/blogs/${blog.photo}`)"
+      :image="blog.photo"
       :key="blog.name"
     />
   </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import CHeader from "../components/UI/Header/Header.vue";
+import CHeader from "../components/UI/Header/CHeader.vue";
 import CFooter from "../components/UI/Footer/Footer.vue";
 import BlogItem from "../components/User/Blogs/BlogItem.vue";
 import ThongBaoService from '@/service/ThongBaoService';

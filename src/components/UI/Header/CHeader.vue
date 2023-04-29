@@ -169,6 +169,8 @@ export default {
   created() {
     this.changeBGMenu();
     this.isRemember();
+    console.log("hello");
+
   },
 };
 </script>

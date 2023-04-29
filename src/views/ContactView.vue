@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import CHeader from "../components/UI/Header/Header.vue";
+import CHeader from "../components/UI/Header/CHeader.vue";
 import CFooter from "../components/UI/Footer/Footer.vue";
 import ContactItem from "../components/User/Contact/ContactItem.vue"
 import ContactForm from "@/components/User/Contact/ContactForm.vue";
@@ -36,20 +36,20 @@ export default {
         return {
             listContact: [
                 {
-                    name: "mot",
-                    email: "email mot"
+                    name: "Trưởng phòng",
+                    email: "maithuy2012@gmail.com"
                 },
                 {
-                    name: "mot",
-                    email: "email mot"
+                    name: "Nhân viên Hà Thanh",
+                    email: "Thanh.Ha1253@gmail.com"
                 },
                 {
-                    name: "mot",
-                    email: "email mot"
+                    name: "Nhân viên Thanh Thúy",
+                    email: "thuy.thanh23343@gmail.com"
                 },
                 {
-                    name: "mot",
-                    email: "email mot"
+                    name: "Nhân viên Quân Đỗ",
+                    email: "do.quan123@gmail.com"
                 }
             ],
             cart: [],

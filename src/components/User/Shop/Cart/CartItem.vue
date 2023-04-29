@@ -4,7 +4,7 @@
       <div class="flex items-center">
         <img
           :src="require(`../../../../assets/images/books/${image}`)"
-          class="object-cover w-24 h-24 mr-4"
+          class="object-cover w-24 h-32 mr-4"
           alt=""
         />
         <div class="">

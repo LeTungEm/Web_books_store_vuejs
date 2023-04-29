@@ -3,6 +3,7 @@
     <div class="grid grid-cols-2 gap-2 px-2 md:px-4 md:grid-cols-4 md:gap-4 lg:grid-cols-6 lg:grid-rows-2">
         <div v-for="book,index in getLishBestSeller" :class="index == 4?'md:col-start-3 col-span-2 md:row-start-1 md:row-span-2':''" :key="book" >
           <BookItem 
+            :bookId="book.masach"
             :imageHeight="'h-1/2 xl:h-3/5'"
             :price="book.giatien" 
             contentCenter 

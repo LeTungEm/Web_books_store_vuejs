@@ -1,7 +1,7 @@
 <template>
   <router-link :to="`/blogDetail/${id}`" class="h-full shadow-md pb-12 bg-gray-50 relative">
     <img
-      :src="image"
+      :src="`https://webbooksstore.000webhostapp.com/Images/blogs/${image}`"
       class="w-full h-52 md:h-64 lg:h-72 xl:h-96 object-cover"
     />
     <div class="p-8 relative">

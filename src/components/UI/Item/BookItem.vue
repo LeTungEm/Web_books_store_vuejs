@@ -8,7 +8,7 @@
         <!-- book image -->
         <img
           class="w-full h-full object-fill rounded-sm"
-          :src="require(`../../../assets/images/books/${image}`)"
+          :src="`https://webbooksstore.000webhostapp.com/Images/books/${image}`"
           alt="item book of the moon"
         />
         <div
@@ -22,7 +22,8 @@
           ></ion-icon>
         </div>
       </div>
-      <div
+      <router-link
+        :to="`/bookDetail/${bookId}`"
         v-bind:class="contentCenter ? 'text-center' : 'px-5'"
         class="p-1 my-auto"
       >
@@ -48,11 +49,11 @@
 
         <h5
           v-if="description"
-          class="py-5 px-4 text-2xl text-gray-400 md:absolute md:bottom-0"
+          class="py-5 px-4 text-2xl text-gray-400 "
         >
           {{ description }}
         </h5>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

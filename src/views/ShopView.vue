@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import CHeader from "../components/UI/Header/Header.vue";
+import CHeader from "../components/UI/Header/CHeader.vue";
 import LeftMenu from "@/components/User/Shop/LeftMenu/LeftMenu.vue";
 import ListBooks from "@/components/User/Shop/ListBooks/ListBooks.vue";
 import CFooter from "../components/UI/Footer/Footer.vue";

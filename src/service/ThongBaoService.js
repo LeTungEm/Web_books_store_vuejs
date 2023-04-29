@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const PRODUCT_API_URL =
-  "http://localhost/LeTungEm/ApiLiBrary/controllers/ThongBaoController.php";
+  "https://webbooksstore.000webhostapp.com/Controllers/ThongBaoController.php";
 
 class ThongBaoService {
 

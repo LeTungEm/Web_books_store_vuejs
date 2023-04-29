@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const PRODUCT_API_URL =
-  "http://localhost/LeTungEm/ApiLiBrary/controllers/VietController.php";
+  "https://webbooksstore.000webhostapp.com/Controllers/VietController.php";
 
 class VietService {
 
