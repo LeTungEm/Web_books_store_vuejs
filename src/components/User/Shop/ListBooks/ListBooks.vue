@@ -1,6 +1,6 @@
 <template>
   <div
-    className="md:h-[100vh] flex-1 md:overflow-y-auto grid grid-cols-2 gap-5 scrollbar-hide ml-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+    className="md:h-[80vh] flex-1 md:overflow-y-auto grid grid-cols-2 gap-5 scrollbar-hide ml-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
   >
     <BookItem
       v-for="book in filterBooks()"

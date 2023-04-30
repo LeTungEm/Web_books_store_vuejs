@@ -10,7 +10,7 @@
         ? 'bg-white translate-y-0'
         : 'translate-y-full'
     "
-    class="z-20 fixed left-0 bg-white w-full h-[100vh] duration-500 transition-transform flex-none md:w-64 lg:w-80 md:translate-y-0 md:relative md:block"
+    class="z-20 fixed left-0 bg-white w-full h-[80vh] duration-500 transition-transform flex-none md:w-64 lg:w-80 md:translate-y-0 md:relative md:block"
   >
     <ul
       class="pb-5 h-full text-xl overflow-scroll scrollbar-hide rounded-sm border-2"

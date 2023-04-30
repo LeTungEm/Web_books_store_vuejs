@@ -2,7 +2,7 @@
   <div class="lg:w-8/12 mx-auto my-16">
     <div class="pb-24 border-b">
       <div class="grid grid-cols-1 lg:grid-cols-2 justify-center">
-        <div class="mx-auto lg:mx-8 h-full w-1/4 lg:w-2/3">
+        <div class="mx-auto lg:mx-8 h-full w-1/3 lg:w-2/3">
           <img :src="`https://webbooksstore.000webhostapp.com/Images/books/${image}`" class="w-full h-full object-cover" />
         </div>
         <div class="mt-12 lg:mt-0 mx-8 leading-loose">
