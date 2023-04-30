@@ -6,7 +6,7 @@
           <img :src="`https://webbooksstore.000webhostapp.com/Images/books/${image}`" class="w-full h-full object-cover" />
         </div>
         <div class="mt-12 lg:mt-0 mx-8 leading-loose">
-          <h1 class="text-3xl font-bold">{{ name }}</h1>          
+          <h1 class="text-3xl font-bold">{{ title }}</h1>          
           <p class="text-gray-600 mb-6 text-justify">
             {{ description }}
           </p>
@@ -56,7 +56,8 @@ export default {
     };
   },
   props: {
-    name: String,
+    bookId: String,
+    title: String,
     image: String,
     description: String,
   },

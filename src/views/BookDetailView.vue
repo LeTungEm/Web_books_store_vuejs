@@ -3,7 +3,8 @@
   <div>
     <BookDetail 
       @changeCart="this.changeNumber += 1" 
-      :name="book.tensach" 
+      :bookId="book.masach"
+      :title="book.tensach" 
       :image="book.photo" 
       :description="book.gioithieu"/>
   </div>
