@@ -2,7 +2,7 @@
   <CHeader />
   <BlogDetail
     :title="blogDetail.tieude"
-    :image="require(`../assets/images/blogs/${blogDetail.photo}`)"
+    :image="blogDetail.photo"
     :content="blogDetail.noidung"
   />
 </template>

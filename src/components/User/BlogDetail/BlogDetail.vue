@@ -2,7 +2,7 @@
   <div class="p-5">
     <img
       class="object-bottom object-cover w-full rounded-xl h-[50vh]"
-      :src="image"
+      :src="`https://webbooksstore.000webhostapp.com/Images/blogs/${image}`"
       alt="anh"
     />
   </div>
