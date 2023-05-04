@@ -17,8 +17,8 @@ export default {
     name:"CBanner",
     data(){
         return {
-            logo:require('../../../../assets/images/logo/logo.jpg'),
-            banner:require('../../../../assets/images/banner/banner.png'),
+            logo: `https://webbooksstore.000webhostapp.com/Images/logo/logo.jpg`,
+            banner: `https://webbooksstore.000webhostapp.com/Images/banner/banner.png`,
         };
     }
 }

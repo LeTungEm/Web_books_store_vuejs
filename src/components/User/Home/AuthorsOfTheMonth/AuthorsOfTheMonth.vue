@@ -27,7 +27,7 @@ export default {
   name: "AuthorsOfTheMonth",
   data(){
     return {
-        image2:require("../../../../assets/images/authors/1.jpg"),
+        image2:`https://webbooksstore.000webhostapp.com/Images/authors/1.jpg`,
     };
   },
   props:{

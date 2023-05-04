@@ -118,7 +118,7 @@ export default {
     return {
       menuStatus: false,
       bgMenu: false,
-      backGround: require("../../../assets/images/banner/loginBackGround.jpg"),
+      backGround: `https://webbooksstore.000webhostapp.com/Images/banner/loginBackGround.jpg`,
       search: "",
       isCartOpen: false,
       isCartNull: false,
