@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center w-full mt-5">
       <div class="flex items-center">
         <img
-          :src="require(`../../../../assets/images/books/${image}`)"
+          :src="`https://webbooksstore.000webhostapp.com/Images/books/${image}`"
           class="object-cover w-24 h-32 mr-4"
           alt=""
         />

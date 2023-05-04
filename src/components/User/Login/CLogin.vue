@@ -70,7 +70,7 @@ export default {
       notifiContent: "",
       isLogin: true,
       emailData: '',
-      backGround: require("../../../assets/images/banner/loginBackGround.jpg"),
+      backGround: `https://webbooksstore.000webhostapp.com/Images/banner/loginBackGround.jpg`,
     };
   },
   components: {

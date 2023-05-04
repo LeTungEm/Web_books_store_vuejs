@@ -157,8 +157,8 @@ export default {
       this.$router.push("/login");
     },
     isRemember(){
-      if(localStorage.getItem("userID") != null){
-        let userID = localStorage.getItem("userID");
+      let userID = localStorage.getItem("userID");
+      if(userID != null){
         sessionStorage.setItem("userID", userID);
       }
     }
@@ -169,8 +169,6 @@ export default {
   created() {
     this.changeBGMenu();
     this.isRemember();
-    console.log("hello");
-
   },
 };
 </script>
